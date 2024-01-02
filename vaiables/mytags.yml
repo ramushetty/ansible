@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: ping the hosts
+    ping:
+  - name: install apache2 web server 
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family=="Debian"   # acts as a condition
+    tags: myapache2
+
+
+  - name: install webserver on redhat 
+    yum: 
+      name: httpd
+      state: present
+    when: ansible_os_family== "RedHat"
+    tags: myhttpd
+
+  - name: start webserver on redhat 
+    servie: 
+      name: httpd
+      state: started
+    when: ansible_os_family== "RedHat"
+    tags: myhttpd

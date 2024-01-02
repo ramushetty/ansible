@@ -1,0 +1,11 @@
+---
+# tasks file for mywebrole
+
+- name: install webserver
+  apt: 
+    name: nginx
+    state: present
+- name: start webserver
+  service: 
+    name: nginx
+    state: restarted

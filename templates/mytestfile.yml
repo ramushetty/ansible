@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  -  name: create a test file on ansible  node
+     file: 
+       path: /home/ubuntu/testfile.txt
+       state: touch
+       

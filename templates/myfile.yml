@@ -1,0 +1,6 @@
+---
+
+-  name: create a config file on ansible  node
+    file: 
+      path: /home/ubuntu/configmap.cfg
+      state: touch

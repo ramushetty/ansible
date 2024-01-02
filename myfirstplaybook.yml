@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: ping the hosts
+    ping:
+  - name: install apache2 web server 
+    apt:
+      name: apache2
+      state: present
+  - name: uninstall wget
+    apt: 
+      name: wget
+      state: absent
+  - name: install tree
+    apt:
+      name: tree
+      state: present
